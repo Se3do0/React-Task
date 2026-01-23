@@ -110,3 +110,30 @@
     font-family: 'JetBrains Mono', monospace;
   }
 }
+
+/* Non-responsive wrapper: always use desktop layout, scale down on small screens */
+.non-responsive-wrapper {
+  transform-origin: top center;
+}
+
+@media (max-width: 640px) {
+  .non-responsive-wrapper {
+    transform: scale(0.8);
+  }
+}
+
+/* Utility: show/hide blocks below 950px viewport width */
+.show-below-950 { display: none; }
+.hide-below-950 { display: flex; }
+@media (max-width: 950px) {
+  .show-below-950 { display: flex !important; }
+  .hide-below-950 { display: none !important; }
+}
+
+/* Scale certain blocks on small screens to preserve layout */
+.mobile-scale { transform-origin: top center; transition: transform 180ms ease; }
+@media (max-width: 950px) {
+  .mobile-scale { transform: scale(0.72); }
+  /* add small right margin to bottom row on mobile */
+  .mobile-row-mr { transform: translateX(-2rem); }
+}
